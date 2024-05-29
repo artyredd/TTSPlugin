@@ -365,6 +365,7 @@ FodyWeavers.xsd
 /Engine/external/glfw-3.3.5/build/
 
 build/
+external/ferret
 
 CMakeFiles/
 Core.dir/
@@ -388,3 +389,4 @@ RelWithDebInfo/
 /ZERO_CHECK.vcxproj
 /ZERO_CHECK.vcxproj.filters
 /cmake_install.cmake
+
