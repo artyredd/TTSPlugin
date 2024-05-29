@@ -1,2 +1,2 @@
-# FerretPlugin
-Blank ferret example plugin
+# jarvis
+ai assistant written in C
