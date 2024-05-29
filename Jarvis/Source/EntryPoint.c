@@ -1,7 +1,21 @@
 #include "core/runtime.h"
 
-int main()
+OnStart(0)
 {
-	Application.Start();
-	return 0;
+
+}
+
+OnUpdate(0)
+{
+
+}
+
+AfterUpdate(0)
+{
+
+}
+
+OnClose(0)
+{
+
 }
