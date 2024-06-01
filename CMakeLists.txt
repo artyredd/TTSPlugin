@@ -47,6 +47,7 @@ file(COPY assets DESTINATION ${CMAKE_BINARY_DIR}/bin/assets)
 target_link_libraries(Jarvis PRIVATE
     Core
     Engine
+    Synchronization
 )
 
 set_target_properties(Jarvis PROPERTIES
