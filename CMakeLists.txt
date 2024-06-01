@@ -17,7 +17,7 @@ file(GLOB_RECURSE pluginAssets CONFIGURE_DEPENDS
     "assets/*.*"
 )
 
-add_executable(Plugin ${pluginSourceFiles} ${pluginHeaderFiles})
+add_library(Plugin SHARED ${pluginSourceFiles} ${pluginHeaderFiles})
 
 set_property(TARGET Plugin PROPERTY COMPILE_WARNING_AS_ERROR ON)
 set_target_properties(Plugin PROPERTIES COMPILE_FLAGS "/std:c11 /ZI /Od")
