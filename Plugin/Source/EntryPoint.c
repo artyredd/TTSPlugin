@@ -1,21 +1,21 @@
 #include "core/runtime.h"
 
-OnStart(0)
+OnStart(1)
 {
-	fprintf(stdout, "Plugin OnStart ran.");
+	fprintf(stdout, "Plugin OnStart ran.\n");
 }
 
-OnUpdate(0)
+OnUpdate(1)
 {
-	fprintf(stdout, "Plugin OnUpdate ran.");
+	fprintf(stdout, "Plugin OnUpdate ran.\n");
 }
 
-AfterUpdate(0)
+AfterUpdate(1)
 {
-	fprintf(stdout, "Plugin AfterUpdate ran.");
+	fprintf(stdout, "Plugin AfterUpdate ran.\n");
 }
 
-OnClose(0)
+OnClose(1)
 {
-	fprintf(stdout, "Plugin OnClose ran.");
+	fprintf(stdout, "Plugin OnClose ran.\n");
 }
