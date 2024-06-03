@@ -20,7 +20,7 @@ file(GLOB_RECURSE pluginAssets CONFIGURE_DEPENDS
 add_library(Plugin SHARED ${pluginSourceFiles} ${pluginHeaderFiles})
 
 set_property(TARGET Plugin PROPERTY COMPILE_WARNING_AS_ERROR ON)
-set_target_properties(Plugin PROPERTIES COMPILE_FLAGS "/std:c11 /ZI /Od")
+set_target_properties(Plugin PROPERTIES COMPILE_FLAGS "/std:c11 /ZI /Od /experimental:c11atomics")
 
 include(FetchContent)
 
@@ -42,7 +42,7 @@ target_include_directories(Plugin PRIVATE
 )
 
 # Copy assets to the build directory
-file(COPY assets DESTINATION ${CMAKE_BINARY_DIR}/bin/assets)
+file(COPY assets DESTINATION ${CMAKE_BINARY_DIR}/bin/)
 
 target_link_libraries(Plugin PRIVATE
     Core
