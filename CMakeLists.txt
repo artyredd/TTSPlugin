@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.25)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-project(Plugin)
+project(TTSPlugin)
 
 # Verbose logging function
 macro(log_message message)
@@ -77,10 +77,10 @@ file(GLOB_RECURSE pluginAssets CONFIGURE_DEPENDS
 )
 log_message("Plugin assets: ${pluginAssets}")
 
-add_library(Plugin SHARED ${pluginSourceFiles} ${pluginHeaderFiles})
+add_library(TTSPlugin SHARED ${pluginSourceFiles} ${pluginHeaderFiles})
 
-set_property(TARGET Plugin PROPERTY COMPILE_WARNING_AS_ERROR ON)
-set_target_properties(Plugin PROPERTIES COMPILE_FLAGS "/std:c11 /ZI /Od /experimental:c11atomics")
+set_property(TARGET TTSPlugin PROPERTY COMPILE_WARNING_AS_ERROR ON)
+set_target_properties(TTSPlugin PROPERTIES COMPILE_FLAGS "/std:c11 /ZI /Od /experimental:c11atomics")
 
 include(FetchContent)
 
@@ -96,7 +96,7 @@ add_subdirectory(external/ferret)
 log_message("Added Ferret subdirectory.")
 
 # Ensure dependencies are built before the Plugin target
-add_dependencies(Plugin Core Engine)
+add_dependencies(TTSPlugin Core Engine)
 log_message("Added dependencies for Plugin: Core and Engine.")
 
 find_package(CURL CONFIG REQUIRED)
@@ -105,7 +105,7 @@ log_message("Found CURL: ${CURL_INCLUDE_DIRS}")
 find_package(SDL2 CONFIG REQUIRED)
 log_message("Found SDL2: ${SDL2_INCLUDE_DIRS}")
 
-target_include_directories(Plugin PRIVATE
+target_include_directories(TTSPlugin PRIVATE
     "external/Ferret/Core/Headers"
     "external/Ferret/Engine/Headers"
     ${CURL_INCLUDE_DIRS}
@@ -117,7 +117,7 @@ log_message("Set target include directories for Plugin.")
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR}/bin/)
 log_message("Copied assets to ${CMAKE_BINARY_DIR}/bin/")
 
-target_link_libraries(Plugin PRIVATE
+target_link_libraries(TTSPlugin PRIVATE
     Core
     Engine
     Synchronization
@@ -125,7 +125,7 @@ target_link_libraries(Plugin PRIVATE
 )
 log_message("Linked libraries for Plugin: Core, Engine, Synchronization, CURL::libcurl, SDL2::SDL2, SDL2::SDL2main.")
 
-set_target_properties(Plugin PROPERTIES
+set_target_properties(TTSPlugin PROPERTIES
   ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
   LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
   RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
