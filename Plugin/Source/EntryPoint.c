@@ -188,7 +188,7 @@ void QueueTTS(string text)
 
 OnStart(1)
 {
-	LoadTTSCache(stack_string(CACHE_PATH));
+	//LoadTTSCache(stack_string(CACHE_PATH));
 
 	api_key = getenv("OPENAI_API_KEY");
 	if (!api_key) {
