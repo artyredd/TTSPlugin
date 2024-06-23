@@ -81,6 +81,7 @@ add_library(TTSPlugin SHARED ${pluginSourceFiles} ${pluginHeaderFiles})
 
 set_property(TARGET TTSPlugin PROPERTY COMPILE_WARNING_AS_ERROR ON)
 set_target_properties(TTSPlugin PROPERTIES COMPILE_FLAGS "/std:c11 /ZI /Od /experimental:c11atomics")
+target_compile_definitions(TTSPlugin PRIVATE BUILD_STATIC_LIB)
 
 include(FetchContent)
 
